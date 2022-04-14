@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import { db, storage } from "../myBase";
 import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
+import { Form, Button } from "react-bootstrap";
 
 function NweetForm({ userObj }) {
   const [nweet, setNweet] = useState("");
@@ -52,8 +53,8 @@ function NweetForm({ userObj }) {
     clearRef.current.value = null;
   };
   return (
-    <form onSubmit={onSubmit}>
-      <input
+    <Form onSubmit={onSubmit} className="w-25">
+      <Form.Control
         type="text"
         name=""
         id=""
@@ -61,20 +62,20 @@ function NweetForm({ userObj }) {
         value={nweet}
         onChange={onChange}
       />
-      <input type="submit" value="Nweet" />
-      <input
+      <Form.Control
         type="file"
         accept="image/*"
         onChange={onFileChange}
         ref={clearRef}
       />
+      <Button type="Submit">Enter</Button>
       {attachment && (
         <div>
           <img src={attachment} alt="shortcut" width="50px" height="50px" />
           <button onClick={onClearPhotoClick}>clear</button>
         </div>
       )}
-    </form>
+    </Form>
   );
 }
 

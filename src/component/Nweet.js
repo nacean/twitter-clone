@@ -34,7 +34,7 @@ function Nweet({ nweetObj, isOwner }) {
   };
 
   return (
-    <div>
+    <section>
       {editing ? (
         <>
           <form onSubmit={onUpdateSubmit}>
@@ -62,7 +62,7 @@ function Nweet({ nweetObj, isOwner }) {
           )}
         </>
       )}
-    </div>
+    </section>
   );
 }
 export default Nweet;

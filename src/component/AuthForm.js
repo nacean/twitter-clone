@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../myBase";
+import { Form, FloatingLabel, Button } from "react-bootstrap";
 
 function AuthForm({ newAccount }) {
   const [email, setEmail] = useState("");
@@ -36,25 +37,37 @@ function AuthForm({ newAccount }) {
     }
   };
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        type="email"
-        name="email"
-        placeholder="email"
-        value={email}
-        onChange={onChange}
-        required
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="password"
-        value={password}
-        onChange={onChange}
-        required
-      />
-      <input type="submit" value={newAccount ? "Sign In" : "Log In"} />
-    </form>
+    <Form onSubmit={onSubmit} className="w-25 mt-5">
+      <Form.Group className="mb-3">
+        <FloatingLabel controlId="floatingEmail" label="Email">
+          <Form.Control
+            type="email"
+            name="email"
+            placeholder="email"
+            value={email}
+            onChange={onChange}
+            required
+          ></Form.Control>
+        </FloatingLabel>
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <FloatingLabel controlId="floatingPassword" label="Password">
+          <Form.Control
+            type="password"
+            name="password"
+            placeholder="password"
+            value={password}
+            onChange={onChange}
+            required
+          ></Form.Control>
+        </FloatingLabel>
+      </Form.Group>
+      <div className="d-grid my-3">
+        <Button variant="primary" size="lg" type="submit">
+          {newAccount ? "Sign In" : "Log In"}
+        </Button>
+      </div>
+    </Form>
   );
 }
 

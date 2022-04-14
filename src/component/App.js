@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../myBase.js";
 import Router from "./Router.js";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Spinner } from "react-bootstrap";
+import "../css/App.css";
 function App() {
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,7 +27,9 @@ function App() {
       {init ? (
         <Router isLoggedIn={isLoggedIn} userObj={userObj} />
       ) : (
-        "Initializing..."
+        <article className="loading">
+          <Spinner animation="border" />
+        </article>
       )}
     </>
   );

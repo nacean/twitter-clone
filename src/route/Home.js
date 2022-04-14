@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Nweet from "../component/Nweet";
 import { db } from "../myBase";
 import NweetForm from "../component/NweetForm";
+import "../css/Home.css";
 
 function Home({ userObj }) {
   const [nweetGroup, setNweetGroup] = useState([]);
@@ -23,7 +24,7 @@ function Home({ userObj }) {
   }, []);
 
   return (
-    <div>
+    <article className="homeContainer">
       <NweetForm userObj={userObj} />
       <div>
         {nweetGroup.map((nweet) => (
@@ -34,7 +35,7 @@ function Home({ userObj }) {
           />
         ))}
       </div>
-    </div>
+    </article>
   );
 }
 
