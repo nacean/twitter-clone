@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Nweet from "../component/Nweet";
 import { auth, db } from "../myBase";
+import "../css/Profile.css";
+import { Button } from "react-bootstrap";
 
 function Profile({ userObj }) {
   const [myNweets, setMyNweets] = useState([]);
@@ -31,8 +33,15 @@ function Profile({ userObj }) {
   }, []);
 
   return (
-    <>
-      <button onClick={onLogOutClick}>LogOut</button>
+    <section className="profileContainer">
+      <Button
+        size="lg"
+        variant="danger"
+        onClick={onLogOutClick}
+        className="mb-5"
+      >
+        Log Out
+      </Button>
       <div>
         {myNweets.map((nweet) => (
           <Nweet
@@ -42,7 +51,7 @@ function Profile({ userObj }) {
           />
         ))}
       </div>
-    </>
+    </section>
   );
 }
 

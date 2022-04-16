@@ -1,0 +1,14 @@
+.inputImg {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  border-radius: 100%;
+  background-color: #fff;
+}
+.formBox {
+  position: relative;
+  width: 500px;
+  height: 200px;
+  margin-top: 150px;
+  margin-bottom: 50px;
+}

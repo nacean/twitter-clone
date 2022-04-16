@@ -4,6 +4,7 @@ import { db, storage } from "../myBase";
 import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import { Form, Button, Stack } from "react-bootstrap";
+import "../css/NweetForm.css";
 
 function NweetForm({ userObj }) {
   const [nweet, setNweet] = useState("");
@@ -53,36 +54,46 @@ function NweetForm({ userObj }) {
     clearRef.current.value = null;
   };
   return (
-    <Form onSubmit={onSubmit} className="w-25">
-      <Form.Control
-        type="text"
-        as="textarea"
-        name=""
-        id=""
-        placeholder="What is on your mind?"
-        value={nweet}
-        onChange={onChange}
-        className="mb-2"
-      />
-      <Stack direction="horizontal">
-        <Form.Control
-          type="file"
-          accept="image/*"
-          onChange={onFileChange}
-          ref={clearRef}
-          className="w-50"
-        />
-        <Button type="Submit" className="ms-auto">
-          Enter
-        </Button>
-      </Stack>
+    <div className="formBox">
       {attachment && (
-        <div>
-          <img src={attachment} alt="shortcut" width="50px" height="50px" />
-          <button onClick={onClearPhotoClick}>clear</button>
-        </div>
+        <img
+          src={attachment}
+          alt="shortcut"
+          width="50px"
+          height="50px"
+          className="inputImg"
+        />
       )}
-    </Form>
+      <Form onSubmit={onSubmit} className="mb-5">
+        <Form.Control
+          type="text"
+          as="textarea"
+          placeholder="What is on your mind?"
+          value={nweet}
+          onChange={onChange}
+          className="mb-2"
+          style={{ resize: "none" }}
+        />
+
+        <Stack direction="horizontal" gap={1}>
+          <Form.Control
+            type="file"
+            accept="image/*"
+            onChange={onFileChange}
+            ref={clearRef}
+            className="w-50"
+          />
+          <Button type="Submit" className="ms-auto">
+            Enter
+          </Button>
+          {attachment && (
+            <Button variant="danger" onClick={onClearPhotoClick}>
+              clear
+            </Button>
+          )}
+        </Stack>
+      </Form>
+    </div>
   );
 }
 
