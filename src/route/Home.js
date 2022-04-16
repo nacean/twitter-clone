@@ -7,6 +7,7 @@ import "../css/Home.css";
 
 function Home({ userObj }) {
   const [nweetGroup, setNweetGroup] = useState([]);
+  const nickName = userObj.email.split("@")[0];
 
   const getSnapShot = async () => {
     const q = query(collection(db, "nweets"), orderBy("createdAt", "desc"));
@@ -32,6 +33,7 @@ function Home({ userObj }) {
             key={nweet.id}
             nweetObj={nweet}
             isOwner={nweet.creatorId === userObj.uid}
+            nickName={nickName}
           />
         ))}
       </div>

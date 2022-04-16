@@ -25,7 +25,7 @@ function Auth() {
       <AuthForm newAccount={newAccount} />
       <div className="d-grid gap-2 w-25">
         <Button variant="primary" size="lg" onClick={toggleAccount}>
-          toggle
+          Switch Log in / Sign in
         </Button>
         <Button variant="secondary" size="lg" onClick={goggleLogin}>
           Continue with Goggle

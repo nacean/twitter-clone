@@ -6,7 +6,7 @@ import Profile from "../route/Profile";
 import Navigation from "./Navigation";
 function Router({ isLoggedIn, userObj }) {
   return (
-    <>
+    <div className="mainContainer">
       {isLoggedIn && <Navigation />}
       <Routes>
         {isLoggedIn ? (
@@ -18,7 +18,7 @@ function Router({ isLoggedIn, userObj }) {
           <Route path="/" element={<Auth />} />
         )}
       </Routes>
-    </>
+    </div>
   );
 }
 

@@ -40,6 +40,7 @@ function Nweet({ nweetObj, isOwner }) {
   return (
     <section>
       <Card style={{ width: "500px", height: "120px" }} className="mb-3">
+        <Card.Header>{nweetObj.nickName}</Card.Header>
         {editing ? (
           <Card.Body>
             <form onSubmit={onUpdateSubmit}>
@@ -85,7 +86,7 @@ function Nweet({ nweetObj, isOwner }) {
             <ImgMordal
               show={modalShow}
               onHide={() => setModalShow(false)}
-              imgSrc={nweetObj.attachmentUrl}
+              imgsrc={nweetObj.attachmentUrl}
             />
           </Card.Body>
         )}

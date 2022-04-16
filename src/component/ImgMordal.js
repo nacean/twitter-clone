@@ -10,7 +10,7 @@ function ImgMordal(props) {
       centered
       style={{ background: "none" }}
     >
-      <img src={props.imgSrc} alt="bigShow" />
+      <img src={props.imgsrc} alt="bigShow" />
     </Modal>
   );
 }

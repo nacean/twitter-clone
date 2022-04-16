@@ -10,6 +10,8 @@ import { Button } from "react-bootstrap";
 
 function Profile({ userObj }) {
   const [myNweets, setMyNweets] = useState([]);
+  const nickName = userObj.email.split("@")[0];
+
   const navigate = useNavigate();
   const onLogOutClick = () => {
     signOut(auth);
@@ -42,12 +44,14 @@ function Profile({ userObj }) {
       >
         Log Out
       </Button>
+      <h2>내 게시글</h2>
       <div>
         {myNweets.map((nweet) => (
           <Nweet
             key={nweet.id}
             nweetObj={nweet}
             isOwner={nweet.creatorId === userObj.uid}
+            nickName={nickName}
           />
         ))}
       </div>
